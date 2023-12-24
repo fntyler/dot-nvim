@@ -1,3 +1,4 @@
 
 # ignore all files in plugin directory (for now)
 plugged/*
+pack/*
