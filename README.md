@@ -1,0 +1,2 @@
+# dot-neovim
+neovim config
