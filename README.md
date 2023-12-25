@@ -24,4 +24,22 @@ installation path: `~/.local/share/nvim/site/autoload`
 
 * `plugged/nvim-treesitter/parser/{language}.so`, parser installation path.
 
-`:TSUpdate <language_to_update>`, update parser
+`:TSUpdate <language_to_update>`, update parser.
+
+### plugin - vim-gitgutter
+
+`]c`, jump to next hunk. (default)
+
+* remap: `nmap ]h <plug>(GitGutterNextHunk)`
+
+`[c`, jump to previous hunk.
+
+* remap: `nmap [h <plug>(GitGutterPrevHunk)`
+
+`<leader>hp`, preview the hunk.
+
+`<leader>hs`, visually select then stage hunk.
+
+`:43,50GitGutterStageHunk`, using range stage hunk.
+
+`<leader>hu`, undo hunk.
