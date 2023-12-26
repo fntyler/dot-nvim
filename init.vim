@@ -49,11 +49,13 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 "-- GitGutter
 "- sign list
 highlight SignColumn ctermbg=7 
+"highlight SignColumn guibg=7 ctermbg=7
 highlight GitGutterAdd ctermfg=10
 highlight GitGutterChange ctermfg=11
 highlight GitGutterDelete ctermfg=9
-highlight! link SignColumn LineNr
+"highlight! link SignColumn LineNr
 let g:gitgutter_sign_removed = 'x'
+"let g:gitgutter_set_sign_backgrounds = 0
 "let g:gitgutter_preview_win_location
 
 "set statusline+=%#warningmsg#
