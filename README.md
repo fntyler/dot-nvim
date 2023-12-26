@@ -25,6 +25,18 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 `:PlugClean`, delete dangling plugins.
 
+### plugin - nvim-telescope
+
+`<leader>ff`, find files
+
+`<leader>fg`, live grep
+
+`<leader>fb`, buffers
+
+`<leader>fh`, help tags
+
+
+
 
 ### plugin - nvim-treesitter
 
@@ -36,6 +48,15 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 
 ### plugin - vim-gitgutter
+
+installation:
+
+```sh
+mkdir -p ~/.config/nvim/pack/airblade/start
+cd ~/.config/nvim/pack/airblade/start
+git clone https://github.com/airblade/vim-gitgutter.git
+nvim -u NONE -c "helptags vim-gitgutter/doc" -c q
+```
 
 `]c`, jump to next hunk. (default)
 
