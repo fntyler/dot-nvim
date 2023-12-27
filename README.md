@@ -25,6 +25,21 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 `:PlugClean`, delete dangling plugins.
 
+
+### plugin - nvim-lspconfig
+
+installation:
+
+install language server:
+
+```sh
+$ npm -i -g pyright
+$ require'lspconfig'.pyright.setup{}
+```
+
+`:LspInfo`, display status or to troubleshoot.
+
+
 ### plugin - nvim-telescope
 
 `<leader>ff`, find files

@@ -13,15 +13,22 @@ set updatetime=100
 
 "-- plugins
 call plug#begin('~/.config/nvim/plugged')
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'hrsh7th/nvim-cmp'
 "Plug 'nvim-lua/popup.nvim'
 call plug#end()
 
 "-- lua-heredoc
 lua << EOF
+    -- Setup language servers
+    local lspconfig = require('lspconfig')
+    lspconfig.pyright.setup {}
+
+    -- treesitter
     require'nvim-treesitter.configs'.setup {
       highlight = {
         enable = true,
