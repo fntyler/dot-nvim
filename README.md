@@ -88,3 +88,20 @@ nvim -u NONE -c "helptags vim-gitgutter/doc" -c q
 `:43,50GitGutterStageHunk`, using range stage hunk.
 
 `<leader>hu`, undo hunk.
+
+
+### plugin - epwalsh/obsidian.nvim
+
+installation:
+
+```
+Plug 'epwalsh/obsidian.nvim'
+```
+
+additionally,
+
+```
+" obsidian.nvim https://github.com/epwalsh/obsidian.nvim/issues/286
+set conceallevel=1
+```
+
