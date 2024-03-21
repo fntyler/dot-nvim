@@ -105,3 +105,11 @@ additionally,
 set conceallevel=1
 ```
 
+### plugin - vim-surround
+
+```sh
+mkdir -p ~/.config/nvim/pack/tpope/start
+cd ~/.config/nvim/pack/tpope/start
+git clone https://tpope.io/vim/surround.git
+nvim -u NONE -c "helptags surround/doc" -c q
+```
