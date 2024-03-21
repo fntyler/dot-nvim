@@ -17,7 +17,7 @@ set wildmenu
 "ctrl+shift+c as copy-to-clipboard
 noremap <C-C> "+y
 " obsidian.nvim https://github.com/epwalsh/obsidian.nvim/issues/286
-set conceallevel=2
+set conceallevel=1
 
 "-- plugins
 call plug#begin('~/.config/nvim/plugged')
