@@ -120,6 +120,7 @@ lua << EOF
     --}
     -- Set up nvim-cmp - end
 
+    -- nvim.obsidian
     -- Set up nvim.obsidian
     local obsidian = require("obsidian").setup({
         workspaces = {
@@ -198,9 +199,40 @@ lua << EOF
               ObsidianHighlightText = { bg = "#75662e" },
             },
           },
+
+          sort_by = "modified",
+          sort_reversed = true,
+
+          -- Optional, determines how certain commands open notes. The valid options are:
+          -- 1. "current" (the default) - to always open in the current window
+          -- 2. "vsplit" - to open in a vertical split if there's not already a vertical split
+          -- 3. "hsplit" - to open in a horizontal split if there's not already a horizontal split
+          open_notes_in = "current",
+
+          -- Specify how to handle attachments.
+          attachments = {
+            -- The default folder to place images in via `:ObsidianPasteImg`.
+            -- If this is a relative path it will be interpreted as relative to the vault root.
+            -- You can always override this per image by passing a full path to the command instead of just a filename.
+            img_folder = "assets/imgs",  -- This is the default
+            -- A function that determines the text to insert in the note when pasting an image.
+            -- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
+            -- This is the default implementation.
+            ---@param client obsidian.Client
+            ---@param path obsidian.Path the absolute path to the image file
+            ---@return string
+            img_text_func = function(client, path)
+              path = client:vault_relative_path(path) or path
+              return string.format("![%s](%s)", path.name, path)
+            end,
+          },
+
     })
 EOF
 
+"-- Obsidian Keybinding
+nnoremap <leader>os :ObsidianSearch<CR>
+nnoremap <leader>ot :ObsidianTags<CR>
 
 "-- Find files using Telescope command-line
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
