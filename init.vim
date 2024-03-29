@@ -230,9 +230,11 @@ lua << EOF
     })
 EOF
 
-"-- Obsidian Keybinding
+"-- nvim.obsidian Keybinding
 nnoremap <leader>os :ObsidianSearch<CR>
 nnoremap <leader>ot :ObsidianTags<CR>
+
+"-- vim-fugitive Keybinding
 
 "-- Find files using Telescope command-line
 nnoremap <leader>ff <cmd>Telescope find_files<cr>

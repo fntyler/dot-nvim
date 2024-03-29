@@ -113,3 +113,12 @@ cd ~/.config/nvim/pack/tpope/start
 git clone https://tpope.io/vim/surround.git
 nvim -u NONE -c "helptags surround/doc" -c q
 ```
+
+### plugin - vim-fugitive
+
+```bash
+mkdir -p ~/.config/nvim/pack/tpope/start
+cd ~/.config/nvim/pack/tpope/start
+git clone https://tpope.io/vim/fugitive.git
+vim -u NONE -c "helptags fugitive/doc" -c q
+```
