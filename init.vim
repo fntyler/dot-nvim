@@ -1,3 +1,4 @@
+"globals
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -11,13 +12,21 @@ set incsearch
 set scrolloff=8
 set updatetime=100
 let mapleader = ' '
-"Bash like tab-completion
+"-- Bash like tab-completion
 set wildmode=longest:full,full
 set wildmenu
-"ctrl+shift+c as copy-to-clipboard
+"-- ctrl+shift+c as copy-to-clipboard
 noremap <C-C> "+y
 " obsidian.nvim https://github.com/epwalsh/obsidian.nvim/issues/286
 set conceallevel=1
+
+"-- source config
+nnoremap <leader><leader>sv :source $MYVIMRC<cr>
+"-- close the window showing thelocation list for the current window
+nnoremap <leader>c :lclose<cr>
+"-- next/previous buffer
+nnoremap <leader>b :bn<cr>
+nnoremap <leader>p :bp<cr>
 
 "-- plugins
 call plug#begin('~/.config/nvim/plugged')
@@ -26,13 +35,13 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" nvim-cmp recommendations
+"-- nvim-cmp recommendations
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-" nvim-cmp for vsnip users
+"-- nvim-cmp for vsnip users
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
@@ -47,6 +56,11 @@ lua << EOF
     -- Setup language servers
     local lspconfig = require('lspconfig')
     lspconfig.pyright.setup {}
+
+    vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+    vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
     -- treesitter
     require'nvim-treesitter.configs'.setup {
