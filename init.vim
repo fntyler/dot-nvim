@@ -263,7 +263,7 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 "-- vim-surround
-nnoremap <leader>ysiw`<cr>
+nmap <leader>ss ysiw`
 
 "-- GitGutter
 "- sign list
