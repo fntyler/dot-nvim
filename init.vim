@@ -1,4 +1,4 @@
-"globals
+"-- globals
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -27,6 +27,10 @@ nnoremap <leader>c :lclose<cr>
 "-- next/previous buffer
 nnoremap <leader>b :bn<cr>
 nnoremap <leader>p :bp<cr>
+"-- repeat external command
+nnoremap <F12> :!!<CR>
+"-- search for a line starting with !
+nnoremap <F11> q:?^!<CR>
 
 "-- plugins
 call plug#begin('~/.config/nvim/plugged')
