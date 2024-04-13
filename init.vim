@@ -30,7 +30,7 @@ nnoremap <leader>p :bp<cr>
 "-- repeat external command
 nnoremap <F12> :!!<CR>
 "-- search for a line starting with !
-nnoremap <F11> q:?^!<CR>
+nnoremap <F2> q:?^!<CR>
 
 "-- plugins
 call plug#begin('~/.config/nvim/plugged')
