@@ -254,8 +254,10 @@ lua << EOF
 EOF
 
 "-- nvim.obsidian Keybinding
-nnoremap <leader>os :ObsidianSearch<CR>
+nnoremap <leader>os :ObsidianQuickSwitch<CR>
 nnoremap <leader>ot :ObsidianTags<CR>
+nnoremap <leader>dd :ObsidianDailies<CR>
+nnoremap <leader>oc :ObsidianToggleCheckbox<CR>
 
 "-- vim-fugitive Keybinding
 
