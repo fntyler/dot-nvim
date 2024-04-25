@@ -11,15 +11,20 @@ set hidden
 set incsearch
 set scrolloff=8
 set updatetime=100
-let mapleader = ' '
 "-- Bash like tab-completion
 set wildmode=longest:full,full
 set wildmenu
-"-- ctrl+shift+c as copy-to-clipboard
-noremap <C-C> "+y
+
+set colorcolumn=80
+hi ColorColumn ctermbg=DarkGray guibg=DarkGray
+
 " obsidian.nvim https://github.com/epwalsh/obsidian.nvim/issues/286
 set conceallevel=1
 
+let mapleader = ' '
+
+"-- ctrl+shift+c as copy-to-clipboard
+noremap <C-C> "+y
 "-- source config
 nnoremap <leader><leader>sv :source $MYVIMRC<cr>
 "-- close the window showing thelocation list for the current window
