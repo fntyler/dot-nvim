@@ -161,7 +161,7 @@ lua << EOF
             -- Optional, if you want to change the date format for the ID of daily notes.
             date_format = "%Y-%m-%d",
             -- Optional, if you want to change the date format of the default alias of daily notes.
-            alias_format = "%B %-d, %Y",
+            alias_format = "%Y-%m-%d",
             -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
             template = nil
           },
@@ -181,6 +181,14 @@ lua << EOF
               end,
               opts = { buffer = true },
             },
+          },
+
+        templates = {
+            -- templates directory
+            folder = "templates",
+            date_format = "%Y-%m-%d",
+            time_format = "%H:%M",
+            substitutions = {},
           },
 
         ui = {
