@@ -278,6 +278,11 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
+"-- nvim-telescope Git Pickers
+nnoremap <leader>gh <cmd>lua require('telescope.builtin').git_status()<cr>
+nnoremap <leader>gj <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_stash()<cr>
+
 "-- vim-surround
 nmap <leader>ss ysiw`
 
