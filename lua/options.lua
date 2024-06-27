@@ -6,22 +6,22 @@ vim.bo.softtabstop = 4
 vim.bo.shiftwidth = 4
 
 -- set expandtab
-vim.o.expandtab = true
+vim.opt.expandtab = true
 
 -- set smartindent
-vim.o.smartindent = true
+vim.opt.smartindent = true
 
 -- set relativenumber
-vim.o.relativenumber = true
+vim.opt.relativenumber = true
 
 -- set guicursor=
 vim.g.guicursor=
 
---set nu
-vim.wo.number=true
+-- set nu
+--vim.opt.number = true
 
 -- set nohlsearch
-vim.wo.hlsearch=false
+--vim.opt.nohlsearch = true
 
 -- set hidden
 vim.g.hidden=false
