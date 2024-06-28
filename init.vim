@@ -203,7 +203,7 @@ lua << EOF
 
         templates = {
             -- templates directory
-            folder = "templates",
+            subdir= "templates",
             date_format = "%Y-%m-%d",
             time_format = "%H:%M",
             substitutions = {},
@@ -298,6 +298,8 @@ nnoremap <leader>ot :ObsidianTags<CR>
 nnoremap <leader>od :ObsidianDailies<CR>
 nnoremap <leader>oc :ObsidianToggleCheckbox<CR>
 nnoremap <leader>ol :ObsidianBacklinks<CR>
+vnoremap <leader>ok :ObsidianLink<CR>
+nnoremap <leader>op :ObsidianTemplate<CR>
 
 "-- vim-fugitive Keybinding
 
