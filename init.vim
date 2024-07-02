@@ -301,6 +301,8 @@ nnoremap <leader>ol :ObsidianBacklinks<CR>
 vnoremap <leader>ok :ObsidianLink<CR>
 nnoremap <leader>op :ObsidianTemplate<CR>
 
+nnoremap <leader>nn /#todo<CR>vel
+
 "-- vim-fugitive Keybinding
 
 "-- Find files using Telescope command-line
