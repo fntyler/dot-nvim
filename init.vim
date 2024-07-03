@@ -57,6 +57,9 @@ Plug 'hrsh7th/vim-vsnip'
 " obsidian.nvim 
 Plug 'epwalsh/obsidian.nvim'
 
+" peek.nvim
+" Plug 'toppair/peek.nvim', { 'do': 'deno task --quiet build:fast' }
+
 "Plug 'nvim-lua/popup.nvim'
 call plug#end()
 
