@@ -184,6 +184,12 @@ lua << EOF
               end,
               opts = { buffer = true },
             },
+            ["<cr>"] = {
+              action = function()
+                return require("obsidian").util.smart_action()
+              end,
+              opts = { buffer = true, expr = true },
+            }
         },
 
         -- Optional, customize how names/IDs for new notes are created.
@@ -211,22 +217,6 @@ lua << EOF
             time_format = "%H:%M",
             substitutions = {},
         },
-
-        -- -- Optional, customize the backlinks interface.
-        -- backlinks = {
-        --     -- The default height of the backlinks location list.
-        --     height = 10,
-        --     -- Whether or not to wrap lines.
-        --     wrap = true,
-        -- },
-
-        -- -- Optional, customize the tags interface.
-        -- tags = {
-        --     -- The default height of the tags location list.
-        --     height = 10,
-        --     -- Whether or not to wrap lines.
-        --     wrap = true,
-        -- },
 
         ui = {
             enable = true,  -- set to false to disable all additional syntax features
