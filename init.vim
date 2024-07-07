@@ -21,19 +21,25 @@ hi ColorColumn ctermbg=DarkGray guibg=DarkGray
 " obsidian.nvim https://github.com/epwalsh/obsidian.nvim/issues/286
 set conceallevel=1
 
+"-- configure leader
 let mapleader = ' '
 
 "-- ctrl+shift+c as copy-to-clipboard
 noremap <C-C> "+y
+
 "-- source config
 nnoremap <leader><leader>sv :source $MYVIMRC<cr>
+
 "-- close the window showing thelocation list for the current window
 nnoremap <leader>c :lclose<cr>
+
 "-- next/previous buffer
 nnoremap <leader>b :bn<cr>
 nnoremap <leader>p :bp<cr>
+
 "-- repeat external command
 nnoremap <F12> :!!<CR>
+
 "-- search for a line starting with !
 nnoremap <F2> q:?^!<CR>
 
@@ -44,6 +50,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 "-- nvim-cmp recommendations
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -64,6 +71,7 @@ Plug 'epwalsh/obsidian.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
 "Plug 'nvim-lua/popup.nvim'
+
 call plug#end()
 
 "-- lua-heredoc
@@ -373,25 +381,3 @@ nnoremap <leader>aa <cmd>lua require('telescope.builtin').spell_suggest()<cr>
 
 "-- vim-surround
 nmap <leader>ss ysiw`
-
-"-- GitGutter
-"- sign list
-highlight SignColumn ctermbg=7 
-"highlight SignColumn guibg=7 ctermbg=7
-highlight GitGutterAdd ctermfg=10
-highlight GitGutterChange ctermfg=11
-highlight GitGutterDelete ctermfg=9
-"highlight! link SignColumn LineNr
-let g:gitgutter_sign_removed = 'x'
-"let g:gitgutter_set_sign_backgrounds = 0
-"let g:gitgutter_preview_win_location
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
