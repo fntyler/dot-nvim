@@ -89,12 +89,7 @@ lua << EOF
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
     -- treesitter
-    require'nvim-treesitter.configs'.setup {
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-    }
+    require('plugins.treesitter')
 
     require('plugins.gitsigns')
 
