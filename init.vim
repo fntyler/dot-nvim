@@ -70,6 +70,9 @@ Plug 'epwalsh/obsidian.nvim'
 " gitsigns.nvim
 Plug 'lewis6991/gitsigns.nvim'
 
+" vim-fugitive
+Plug 'tpope/vim-fugitive'
+
 "Plug 'nvim-lua/popup.nvim'
 
 call plug#end()
