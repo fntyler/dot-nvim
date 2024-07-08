@@ -5,7 +5,7 @@ set expandtab
 set smartindent
 set guicursor=
 set relativenumber
-set nu
+set number
 set nohlsearch
 set hidden
 set incsearch
