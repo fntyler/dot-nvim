@@ -12,10 +12,11 @@ set incsearch
 set scrolloff=8
 set updatetime=100
 "-- Bash like tab-completion
-set wildmode=longest:full,full
+set wildmode=longest:full
+set wildoptions=fuzzy
 set wildmenu
 
-set colorcolumn=80
+set colorcolumn=
 hi ColorColumn ctermbg=DarkGray guibg=DarkGray
 
 " obsidian.nvim https://github.com/epwalsh/obsidian.nvim/issues/286
