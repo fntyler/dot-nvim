@@ -81,19 +81,10 @@ call plug#end()
 "-- lua-heredoc
 lua << EOF
     require('plugins.lspconfig')
-
-    -- treesitter
     require('plugins.treesitter')
-
     require('plugins.gitsigns')
-
-    -- nvim-cmp
     require('plugins.cmp')
-
-    -- cmp-nvim-lsp
     require('plugins.cmp-nvim-lsp')
-
-    -- nvim.obsidian
     require('plugins.obsidian')
 EOF
 
