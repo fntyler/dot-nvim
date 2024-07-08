@@ -1,26 +1,5 @@
-"-- globals
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-set guicursor=
-set relativenumber
-set number
-set nohlsearch
-set hidden
-set incsearch
-set scrolloff=8
-set updatetime=100
-"-- Bash like tab-completion
-set wildmode=longest:full
-set wildoptions=fuzzy
-set wildmenu
-
-set colorcolumn=
+"-- settings
 hi ColorColumn ctermbg=DarkGray guibg=DarkGray
-
-" obsidian.nvim https://github.com/epwalsh/obsidian.nvim/issues/286
-set conceallevel=1
 
 "-- configure leader
 let mapleader = ' '
@@ -80,6 +59,7 @@ call plug#end()
 
 "-- lua-heredoc
 lua << EOF
+    require('options')
     require('plugins.lspconfig')
     require('plugins.treesitter')
     require('plugins.gitsigns')

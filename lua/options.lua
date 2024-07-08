@@ -15,16 +15,19 @@ vim.opt.smartindent = true
 vim.opt.relativenumber = true
 
 -- set guicursor=
-vim.g.guicursor=
+vim.g.guicursor = ''
 
--- set nu
---vim.opt.number = true
+-- set relativenumber
+vim.o.relativenumber = true
+
+-- set nu / set number
+vim.o.number = true
 
 -- set nohlsearch
---vim.opt.nohlsearch = true
+vim.opt.hlsearch = false
 
 -- set hidden
-vim.g.hidden=false
+vim.g.hidden = true
 
 -- set incsearch
 vim.g.incsearch = true
@@ -33,21 +36,26 @@ vim.g.incsearch = true
 vim.g.scrolloff = 8
 
 -- set updatetime=100
-vim.o.updatetime = 250
+vim.g.updatetime = 100
 
--- set wildmode=longest:full,full
-vim.g.wildmode = 'longest,full'
+-- set wildmode=longest:full
+vim.g.wildmenu = 'longest:full'
+
+-- set wildoptions=fuzzy
+vim.g.wildoptions = 'fuzzy'
 
 -- set wildmenu
 vim.g.wildmenu = true
 
--- set colorcolumn=80
-vim.wo.colorcolumn = 80
+-- set colorcolumn=
+vim.wo.colorcolumn = ''
+
+--hi ColorColumn ctermbg=DarkGray guibg=DarkGray
 
 -- obsidian.nvim https://github.com/epwalsh/obsidian.nvim/issues/286
 -- set conceallevel=1
-vim.o.concealevel = 1
+vim.wo.conceallevel = 1
 
 -- let mapleader = ' '
-vim.g.mapleader = ' '
-
+--vim.g.mapleader = ' '
+--vim.g.maplocalleader = ' '
