@@ -97,13 +97,8 @@ lua << EOF
     -- nvim-cmp
     require('plugins.cmp')
 
-    -- Set up lspconfig.
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-    --require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-    --  capabilities = capabilities
-    --}
-    -- Set up nvim-cmp - end
+    -- cmp-nvim-lsp
+    require('plugins.cmp-nvim-lsp')
 
     -- nvim.obsidian
     require('plugins.obsidian')
