@@ -9,6 +9,8 @@ noremap <C-C> "+y
 
 "-- source config
 nnoremap <leader><leader>sv :source $MYVIMRC<cr>
+nnoremap <leader><leader>sk :source lua/keymaps2.lua<cr>
+"nnoremap <leader><leader>tt :source lua/plugins/telescope.lua<cr>
 
 "-- close the window showing thelocation list for the current window
 nnoremap <leader>c :lclose<cr>
@@ -60,6 +62,7 @@ call plug#end()
 "-- lua-heredoc
 lua << EOF
     require('options')
+    require('plugins.telescope')
     require('plugins.lspconfig')
     require('plugins.treesitter')
     require('plugins.gitsigns')
@@ -80,28 +83,6 @@ nnoremap <leader>op :ObsidianTemplate<CR>
 nnoremap <leader>nn /#todo<CR>vel
 
 "-- vim-fugitive Keybinding
-
-"-- Find files using Telescope command-line
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-"--Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
-"-- nvim-telescope Git Pickers
-nnoremap <leader>gh <cmd>lua require('telescope.builtin').git_status()<cr>
-nnoremap <leader>gj <cmd>lua require('telescope.builtin').git_branches()<cr>
-nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_stash()<cr>
-
-"-- nvim-telescope Vim Pickers
-nnoremap <leader>km <cmd>lua require('telescope.builtin').keymaps()<cr>
-nnoremap <leader>aa <cmd>lua require('telescope.builtin').spell_suggest()<cr>
-
 
 "-- vim-surround
 nmap <leader>ss ysiw`
