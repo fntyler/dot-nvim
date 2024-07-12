@@ -57,5 +57,4 @@ vim.wo.colorcolumn = ''
 vim.wo.conceallevel = 1
 
 -- let mapleader = ' '
---vim.g.mapleader = ' '
---vim.g.maplocalleader = ' '
+vim.g.mapleader = ' '
