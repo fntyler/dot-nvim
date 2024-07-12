@@ -1,7 +1,9 @@
+-- netrw Explore
+vim.keymap.set('n', '<leader>ex', vim.cmd.Ex)
+
 -- ctrl+shift+c as copy-to-clipboard
 -- noremap <C-C> "+y
 vim.keymap.set('n', '<C-C>', '\"+y', { noremap = true })
-
 vim.keymap.set({'n', 'v'}, '<leader>y', [["+y]])
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz')

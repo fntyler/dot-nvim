@@ -1,30 +1,6 @@
 "-- settings
 hi ColorColumn ctermbg=DarkGray guibg=DarkGray
 
-"-- configure leader
-let mapleader = ' '
-
-"-- ctrl+shift+c as copy-to-clipboard
-noremap <C-C> "+y
-
-"-- source config
-nnoremap <leader><leader>sv :source $MYVIMRC<cr>
-nnoremap <leader><leader>sk :source lua/keymaps2.lua<cr>
-"nnoremap <leader><leader>tt :source lua/plugins/telescope.lua<cr>
-
-"-- close the window showing thelocation list for the current window
-nnoremap <leader>c :lclose<cr>
-
-"-- next/previous buffer
-nnoremap <leader>b :bn<cr>
-nnoremap <leader>p :bp<cr>
-
-"-- repeat external command
-nnoremap <F12> :!!<CR>
-
-"-- search for a line starting with !
-nnoremap <F2> q:?^!<CR>
-
 "-- plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neovim/nvim-lspconfig'
