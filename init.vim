@@ -38,6 +38,7 @@ call plug#end()
 "-- lua-heredoc
 lua << EOF
     require('options')
+    require('keymaps')
     require('plugins.telescope')
     require('plugins.lspconfig')
     require('plugins.treesitter')
@@ -46,17 +47,6 @@ lua << EOF
     require('plugins.cmp-nvim-lsp')
     require('plugins.obsidian')
 EOF
-
-"-- nvim.obsidian Keybinding
-nnoremap <leader>os :ObsidianQuickSwitch<CR>
-nnoremap <leader>ot :ObsidianTags<CR>
-nnoremap <leader>od :ObsidianDailies<CR>
-nnoremap <leader>oc :ObsidianToggleCheckbox<CR>
-nnoremap <leader>ol :ObsidianBacklinks<CR>
-vnoremap <leader>ok :ObsidianLink<CR>
-nnoremap <leader>op :ObsidianTemplate<CR>
-
-nnoremap <leader>nn /#todo<CR>vel
 
 "-- vim-fugitive Keybinding
 

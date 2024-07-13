@@ -134,3 +134,21 @@ require("obsidian").setup({
       },
 
 })
+
+-- keymaps
+-- nnoremap <leader>os :ObsidianQuickSwitch<CR>
+vim.keymap.set('n', '<leader>os', ':ObsidianQuickSwitch<cr>', { noremap = false })
+-- nnoremap <leader>ot :ObsidianTags<CR>
+vim.keymap.set('n', '<leader>ot', ':ObsidianTags<CR>', { noremap = false })
+-- nnoremap <leader>od :ObsidianDailies<CR>
+vim.keymap.set('n', '<leader>od', ':ObsidianDailies<CR>', { noremap = false })
+-- nnoremap <leader>oc :ObsidianToggleCheckbox<CR>
+vim.keymap.set('n', '<leader>oc', ':ObsidianToggleCheckbox<CR>', { noremap = false })
+-- nnoremap <leader>ol :ObsidianBacklinks<CR>
+vim.keymap.set('n', '<leader>ol', ':ObsidianBacklinks<CR>', { noremap = false })
+-- vnoremap <leader>ok :ObsidianLink<CR>
+vim.keymap.set('v', '<leader>ok', ':ObsidianLink<CR>', { noremap = false })
+-- nnoremap <leader>op :ObsidianTemplate<CR>
+vim.keymap.set('n', '<leader>op', ':ObsidianTemplate<CR>', { noremap = false })
+-- nnoremap <leader>nn /#todo<CR>vel
+vim.keymap.set('n', '<leader>nn', '/#todo<CR>vel', { noremap = false })
