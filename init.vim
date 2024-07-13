@@ -46,9 +46,8 @@ lua << EOF
     require('plugins.cmp')
     require('plugins.cmp-nvim-lsp')
     require('plugins.obsidian')
+    require('plugins.surround')
 EOF
 
 "-- vim-fugitive Keybinding
 
-"-- vim-surround
-nmap <leader>ss ysiw`
