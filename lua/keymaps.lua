@@ -22,10 +22,10 @@ vim.keymap.set('n', '<leader>c', ':lclose<cr>', { noremap = true })
 
 -- next/previous buffer
 -- nnoremap <leader>b :bn<cr>
-vim.keymap.set('n', '<leaser>b', ':bn<cr>', { noremap = true })
+vim.keymap.set('n', '<leader>b', ':bn<cr>', { noremap = false })
 
 -- nnoremap <leader>p :bp<cr>
-vim.keymap.set('n', '<leader>p', ':bp<cr>', { noremap = true })
+vim.keymap.set('n', '<leader>p', ':bp<cr>', { noremap = false })
 
 -- repeat external command
 -- nnoremap <F12> :!!<CR>
