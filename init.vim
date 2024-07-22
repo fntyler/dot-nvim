@@ -19,18 +19,20 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
-" obsidian.nvim 
+"-- obsidian.nvim 
 Plug 'epwalsh/obsidian.nvim'
 
-" peek.nvim
-" Plug 'toppair/peek.nvim', { 'do': 'deno task --quiet build:fast' }
-
-" gitsigns.nvim
+"-- gitsigns.nvim
 Plug 'lewis6991/gitsigns.nvim'
 
-" vim-fugitive
+"-- vim-fugitive
 Plug 'tpope/vim-fugitive'
 
+
+"-- peek.nvim
+"Plug 'toppair/peek.nvim', { 'do': 'deno task --quiet build:fast' }
+
+"-- todo: why is this here?
 "Plug 'nvim-lua/popup.nvim'
 
 call plug#end()
