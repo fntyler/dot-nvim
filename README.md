@@ -1,5 +1,7 @@
 # dot-neovim
 
+- [ ] todo 2024-07-22 23:37: enhance documentation in this README
+
 neovim installation (build)
 
 ```
