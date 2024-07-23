@@ -19,6 +19,11 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
+"-- lsp-zero
+" copied from lsp-zero example
+Plug 'L3MON4D3/LuaSnip'
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
+
 "-- obsidian.nvim 
 Plug 'epwalsh/obsidian.nvim'
 
@@ -44,13 +49,14 @@ call plug#end()
 lua << EOF
     require('options')
     require('keymaps')
-    require('plugins.telescope')
-    require('plugins.lspconfig')
+    require('plugins.lsp')
     require('plugins.treesitter')
-    require('plugins.gitsigns')
+    require('plugins.telescope')
+    --require('plugins.lspconfig')
     require('plugins.cmp')
     require('plugins.cmp-nvim-lsp')
     require('plugins.obsidian')
+    require('plugins.gitsigns')
     require('plugins.surround')
 EOF
 
