@@ -1,7 +1,7 @@
 "-- settings
 hi ColorColumn ctermbg=DarkGray guibg=DarkGray
 
-"-- plugins
+"-- plugin manager
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
@@ -59,6 +59,3 @@ lua << EOF
     require('plugins.gitsigns')
     require('plugins.surround')
 EOF
-
-"-- vim-fugitive Keybinding
-
