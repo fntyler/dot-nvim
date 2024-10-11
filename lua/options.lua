@@ -1,9 +1,9 @@
 -- set tabstop=4 softtabstop=4
-vim.bo.tabstop = 4
-vim.bo.softtabstop = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 
 -- set shiftwidth=4
-vim.bo.shiftwidth = 4
+vim.opt.shiftwidth = 4
 
 -- set expandtab
 vim.opt.expandtab = true
@@ -33,7 +33,7 @@ vim.g.hidden = true
 vim.g.incsearch = true
 
 -- set scrolloff=8
-vim.g.scrolloff = 8
+vim.opt_global.scrolloff = 8
 
 -- set updatetime=100
 vim.g.updatetime = 100
