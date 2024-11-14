@@ -22,7 +22,7 @@ Plug 'hrsh7th/vim-vsnip'
 "-- lsp-zero
 " copied from lsp-zero example
 Plug 'L3MON4D3/LuaSnip'
-Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
+Plug 'VonHeikemen/lsp-zero.nvim', { 'branch': 'v3.x' }
 
 "-- obsidian.nvim 
 Plug 'epwalsh/obsidian.nvim'
