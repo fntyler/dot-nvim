@@ -36,6 +36,8 @@ Plug 'tpope/vim-fugitive'
 "-- vim-surround
 Plug 'tpope/vim-surround'
 
+"-- markdown-preview
+"-- Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 "-- peek.nvim
 "Plug 'toppair/peek.nvim', { 'do': 'deno task --quiet build:fast' }
