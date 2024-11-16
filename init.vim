@@ -36,6 +36,11 @@ Plug 'tpope/vim-fugitive'
 "-- vim-surround
 Plug 'tpope/vim-surround'
 
+"-- twilight.nvim
+Plug 'folke/twilight.nvim'
+"-- zen-mode.nvim
+Plug 'folke/zen-mode.nvim'
+
 "-- markdown-preview
 "-- Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
@@ -60,4 +65,6 @@ lua << EOF
     require('plugins.obsidian')
     require('plugins.gitsigns')
     require('plugins.surround')
+    require('plugins.twilight')
+    require('plugins.zen-mode')
 EOF
