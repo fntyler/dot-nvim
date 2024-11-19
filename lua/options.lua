@@ -14,6 +14,9 @@ vim.opt.smartindent = true
 -- set relativenumber
 vim.opt.relativenumber = true
 
+-- stop adding comments with 'o'
+vim.opt.formatoptions:remove('o')
+
 -- set guicursor=
 vim.g.guicursor = ''
 
