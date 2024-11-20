@@ -1,6 +1,10 @@
 "-- settings
 hi ColorColumn ctermbg=DarkGray guibg=DarkGray
 
+"-- autocmd remove trailing whitespace
+"--au FileType c,cpp,java,php,python,javascript,typescript,vim,swig
+"--      \ au BufWritePre <buffer> :%s/\s\+$//e
+
 "-- plugin manager
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neovim/nvim-lspconfig'

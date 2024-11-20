@@ -34,3 +34,6 @@ vim.keymap.set('n', '<F12>', ':!!<cr>', { noremap = true })
 -- search for a line starting with !
 -- nnoremap <F2> q:?^!<CR>
 vim.keymap.set('n', '<F2>', 'q:?^!<cr>', { noremap = true })
+
+-- remove trailing white space
+vim.keymap.set('n', '<leader>ws', [[:%s/\s\+$//e<cr>]], { noremap = true })
