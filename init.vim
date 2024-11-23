@@ -45,6 +45,9 @@ Plug 'folke/twilight.nvim'
 "-- zen-mode.nvim
 Plug 'folke/zen-mode.nvim'
 
+"-- colorscheme
+Plug 'folke/tokyonight.nvim'
+
 "-- markdown-preview
 "-- Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
@@ -60,6 +63,7 @@ call plug#end()
 lua << EOF
     require('options')
     require('keymaps')
+    require('colors')
     require('plugins.lsp')
     require('plugins.treesitter')
     require('plugins.telescope')
