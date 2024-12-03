@@ -15,7 +15,7 @@ vim.opt.smartindent = true
 vim.opt.relativenumber = true
 
 -- stop adding comments with 'o'
-vim.opt.formatoptions:remove('o')
+vim.opt.formatoptions:remove "o"
 
 -- set guicursor=
 vim.g.guicursor = ''
@@ -34,6 +34,9 @@ vim.g.hidden = true
 
 -- set incsearch
 vim.g.incsearch = true
+
+-- set inccommand
+vim.opt.inccommand = 'split'
 
 -- set scrolloff=8
 vim.opt_global.scrolloff = 8

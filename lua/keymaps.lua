@@ -1,6 +1,9 @@
 -- netrw Explore
 vim.keymap.set('n', '<leader>ex', vim.cmd.Ex)
 
+-- execute the current cursor line in Lua
+vim.keymap.set('n', '<leader>x', '<cmd>.lua<CR>', { desc = "lua ex the current line" })
+
 -- ctrl+shift+c as copy-to-clipboard
 -- noremap <C-C> "+y
 vim.keymap.set('v', '<C-C>', '\"+y', { noremap = true })
@@ -12,9 +15,16 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('v', 'J', ':m \'>+1<cr>gv=gv')
 vim.keymap.set('v', 'K', ':m \'<-2<cr>gv=gv')
 
+-- wip: size splits
+--vim.keymap.set('n', '<M-,>', '<C-w>5<')
+--vim.keymap.set('n', '<M-.>', '<C-w>5>')
+--vim.keymap.set('n', '<M-m>', '<C-w>+')
+--vim.keymap.set('n', '<M-/>', '<C-w>-')
+
 -- source config
 -- nnoremap <leader><leader>sv :source $MYVIMRC<cr>
 vim.keymap.set('n', '<leader><leader>sv', ':source $MYVIMRC', { noremap = true })
+vim.keymap.set('n', '<leader><leader>sh', ':source %<CR>', { noremap = true })
 
 -- close the window showing thelocation list for the current window
 -- nnoremap <leader>c :lclose<cr>

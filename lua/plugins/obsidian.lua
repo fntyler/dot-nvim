@@ -1,9 +1,34 @@
+---- helper (wip)
+--function pathExists(path)
+--    local file = io.open(path, "r")
+--    if file then
+--        file:close()
+--        return true
+--    else
+--        return false
+--    end
+--end
+--
+--local test_path = "~/dev/work"
+--local ws_name
+--local ws_path
+--
+--if pathExists(test_path) then
+--    print("yes")
+--    ws_name = "work"
+--    ws_path = "~/dev/work"
+--else
+--    print("yes")
+--    ws_name = "whitepages"
+--    ws_path = "~/dev/whitepages"
+--end
+
 -- nvim.obsidian
 require("obsidian").setup({
     workspaces = {
         {
-            name = "whitepages",
-            path = "~/dev/whitepages",
+            name = "work",
+            path = "~/dev/work",
         },
     },
 
