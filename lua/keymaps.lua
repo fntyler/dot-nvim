@@ -28,7 +28,7 @@ vim.keymap.set('n', '<leader><leader>sh', ':source %<CR>', { noremap = true })
 
 -- close the window showing thelocation list for the current window
 -- nnoremap <leader>c :lclose<cr>
-vim.keymap.set('n', '<leader>c', ':lclose<cr>', { noremap = true })
+vim.keymap.set('n', '<leader>d', ':bdel<cr>', { noremap = true })
 
 -- next/previous buffer
 -- nnoremap <leader>b :bn<cr>
