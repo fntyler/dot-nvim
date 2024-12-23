@@ -10,3 +10,4 @@ if vim.opt.background:get() == 'dark' then
 else
     vim.cmd.colorscheme("tokyonight-day")
 end
+

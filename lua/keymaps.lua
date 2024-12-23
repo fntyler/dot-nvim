@@ -2,8 +2,8 @@
 vim.keymap.set('n', '<leader>ex', vim.cmd.Ex)
 
 -- execute the current cursor line in Lua
-vim.keymap.set('n', '<leader>x', '<cmd>.lua<CR>', { desc = "lua ex the current line" })
-
+vim.keymap.set('n', '<leader>x', '<cmd>.lua<CR>', { desc = "lua the current line" })
+vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = "lua the current line" })
 -- ctrl+shift+c as copy-to-clipboard
 -- noremap <C-C> "+y
 vim.keymap.set('v', '<C-C>', '\"+y', { noremap = true })
@@ -47,3 +47,8 @@ vim.keymap.set('n', '<F2>', 'q:?^!<cr>', { noremap = true })
 
 -- remove trailing white space
 vim.keymap.set('n', '<leader>ws', [[:%s/\s\+$//e<cr>]], { noremap = true })
+
+-- nvim-lspconfig keymaps
+vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
+vim.keymap.set('n', 'gra', vim.lsp.buf.code_action)
+vim.keymap.set('n', 'grr', vim.lsp.buf.references)

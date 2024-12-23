@@ -1,3 +1,7 @@
+-- let mapleader = ' '
+--vim.g.mapleader = ' '
+--vim.g.maplocalleader = "\\"
+
 -- set tabstop=4 softtabstop=4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -61,6 +65,3 @@ vim.wo.colorcolumn = ''
 -- obsidian.nvim https://github.com/epwalsh/obsidian.nvim/issues/286
 -- set conceallevel=1
 vim.wo.conceallevel = 1
-
--- let mapleader = ' '
-vim.g.mapleader = ' '
