@@ -3,7 +3,7 @@ vim.keymap.set('n', '<leader>ex', vim.cmd.Ex)
 
 -- execute the current cursor line in Lua
 vim.keymap.set('n', '<leader>x', '<cmd>.lua<CR>', { desc = "lua the current line" })
-vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = "lua the current line" })
+vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = "lua the current file" })
 -- ctrl+shift+c as copy-to-clipboard
 -- noremap <C-C> "+y
 vim.keymap.set('v', '<C-C>', '\"+y', { noremap = true })
