@@ -33,3 +33,6 @@ vim.keymap.set('n', '<leader>gh', require('telescope.builtin').git_status, { des
 vim.keymap.set('n', '<leader>gj', require('telescope.builtin').git_branches, { desc = 'git branches' })
 
 vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_stash, { desc = 'git stash' })
+
+-- Treesitter Pickers
+vim.keymap.set('n', '<leader>ts', require('telescope.builtin').treesitter, { desc = 'function names, variables from TS' })
