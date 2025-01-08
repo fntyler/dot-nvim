@@ -21,6 +21,10 @@ vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc
 
 vim.keymap.set('n', '<leader>km', require('telescope.builtin').keymaps, { desc = 'normal mode keymaps' })
 
+vim.keymap.set('n', '<leader>fr', require('telescope.builtin').registers, { desc = 'vim registers, paste on <cr>' })
+
+vim.keymap.set('n', '<leader>fm', require('telescope.builtin').man_pages, { desc = 'man page entries, opens on <cr>' })
+
 -- nnoremap <leader>aa <cmd>lua require('telescope.builtin').spell_suggest()<cr>
 
 -- Git Pickers
