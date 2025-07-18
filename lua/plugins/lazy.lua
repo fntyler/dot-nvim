@@ -93,4 +93,15 @@ return {
     "tpope/vim-surround"
   },
 
+  -- gh helper
+  {
+    "pwntester/octo.nvim",
+    dependencies = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+
 }
