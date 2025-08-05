@@ -1,6 +1,10 @@
 -- netrw Explore
 vim.keymap.set('n', '<leader>ex', vim.cmd.Ex)
 
+-- exit terminal-mode
+-- https://neovim.io/doc/user/terminal.html#terminal-input
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
+
 -- execute the current cursor line in Lua
 vim.keymap.set('n', '<leader>x', '<cmd>.lua<CR>', { desc = "lua the current line" })
 vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = "lua the current file" })
