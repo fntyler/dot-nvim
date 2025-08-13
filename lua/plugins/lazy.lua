@@ -83,6 +83,11 @@ return {
     "tpope/vim-fugitive"
   },
 
+  -- github extension for fugitive.vim
+  {
+    "tpope/vim-rhubarb"
+  },
+
   -- git decorator
   {
     "lewis6991/gitsigns.nvim"
@@ -102,8 +107,8 @@ return {
       "nvim-telescope/telescope.nvim",
       "nvim-tree/nvim-web-devicons",
     },
-    config = function ()
-      require"octo".setup()
+    config = function()
+      require "octo".setup()
     end
   },
 
