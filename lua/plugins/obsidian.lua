@@ -170,7 +170,8 @@ vim.keymap.set('v', '<leader>ok', ':ObsidianLink<CR>', { noremap = false })
 -- nnoremap <leader>op :ObsidianTemplate<CR>
 vim.keymap.set('n', '<leader>op', ':ObsidianTemplate<CR>', { noremap = false })
 -- nnoremap <leader>op :ObsidianTemplate<CR>
-vim.keymap.set('n', '<leader>oo', ':ObsidianTOC<CR>', { noremap = false })
+vim.keymap.set('n', '<leader>oh', ':ObsidianTOC<CR>',
+  { noremap = false, desc = 'load the table of contents of the current note into a picker list' })
 -- vnoremap <leader>ox :ObsidianTemplate<CR>
 vim.keymap.set('v', '<leader>ox', ':ObsidianExtractNote<CR>',
   { noremap = false, desc = 'to extract the visually selected text into a new note and link to it' })
