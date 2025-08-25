@@ -171,5 +171,8 @@ vim.keymap.set('v', '<leader>ok', ':ObsidianLink<CR>', { noremap = false })
 vim.keymap.set('n', '<leader>op', ':ObsidianTemplate<CR>', { noremap = false })
 -- nnoremap <leader>op :ObsidianTemplate<CR>
 vim.keymap.set('n', '<leader>oo', ':ObsidianTOC<CR>', { noremap = false })
+-- vnoremap <leader>ox :ObsidianTemplate<CR>
+vim.keymap.set('v', '<leader>ox', ':ObsidianExtractNote<CR>',
+  { noremap = false, desc = 'to extract the visually selected text into a new note and link to it' })
 -- nnoremap <leader>nn /#todo<CR>vel
 vim.keymap.set('n', '<leader>nn', '/#todo<CR>vel', { noremap = false })
