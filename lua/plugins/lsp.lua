@@ -2,7 +2,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- neovim 0.11+ with nvim-lspconfig
 -- bashls
-vim.lsp.enable 'bashls'
+vim.lsp.enable('bashls')
 
 -- pyright
 vim.lsp.enable('pyright')
