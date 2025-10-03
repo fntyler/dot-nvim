@@ -1,13 +1,14 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("lspconfig").lua_ls.setup { capabilites = capabilities }
-require("lspconfig").pyright.setup { capabilites = capabilities }
-
--- bashls
 -- neovim 0.11+ with nvim-lspconfig
+-- bashls
 vim.lsp.enable 'bashls'
 
+-- pyright
+vim.lsp.enable('pyright')
+
 -- lua_ls
+vim.lsp.enable('lua_ls')
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local c = vim.lsp.get_client_by_id(args.data.client_id)
