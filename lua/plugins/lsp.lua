@@ -23,5 +23,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end,
       })
     end
+
+    --  TODO: flow like, save trigger → format file on disk → reload buffer to see changes → complete the save operation.
+    -- if vim.bo.filetype == "python" then
+    --   -- Format Python files with Black on save
+    --   vim.api.nvim_create_autocmd('BufWritePre', {
+    --     buffer = args.buf,
+    --     callback = function()
+    --       vim.fn.system('uv run python black --quiet ' .. vim.fn.shellescape(vim.fn.expand('%:p')))
+    --       vim.cmd('edit!')
+    --     end,
+    --   })
+    -- end
   end,
 })
