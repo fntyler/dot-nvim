@@ -156,19 +156,28 @@ require("obsidian").setup({
 
 -- keymaps
 -- nnoremap <leader>os :ObsidianQuickSwitch<CR>
-vim.keymap.set('n', '<leader>os', ':ObsidianQuickSwitch<cr>', { noremap = false })
+vim.keymap.set('n', '<leader>os', ':ObsidianQuickSwitch<cr>',
+  { noremap = false, desc = 'quickly switch to (or open) another note in vault' })
 -- nnoremap <leader>ot :ObsidianTags<CR>
-vim.keymap.set('n', '<leader>ot', ':ObsidianTags<CR>', { noremap = false })
+vim.keymap.set('n', '<leader>ot', ':ObsidianTags<CR>',
+  { noremap = false, desc = 'picker list of all occurrences of the given tags' })
 -- nnoremap <leader>od :ObsidianDailies<CR>
-vim.keymap.set('n', '<leader>od', ':ObsidianDailies<CR>', { noremap = false })
+vim.keymap.set('n', '<leader>od', ':ObsidianDailies<CR>', { noremap = false, desc = 'picker list of daily notes' })
 -- nnoremap <leader>oc :ObsidianToggleCheckbox<CR>
 vim.keymap.set('n', '<leader>oc', ':ObsidianToggleCheckbox<CR>', { noremap = false })
 -- nnoremap <leader>ol :ObsidianBacklinks<CR>
-vim.keymap.set('n', '<leader>ol', ':ObsidianBacklinks<CR>', { noremap = false })
+vim.keymap.set('n', '<leader>ol', ':ObsidianBacklinks<CR>',
+  { noremap = false, desc = 'picker list of references to the current buffer' })
 -- vnoremap <leader>ok :ObsidianLink<CR>
-vim.keymap.set('v', '<leader>ok', ':ObsidianLink<CR>', { noremap = false })
+vim.keymap.set('v', '<leader>ok', ':ObsidianLink<CR>',
+  {
+    noremap = false,
+    desc =
+    'link an inline visual selection of text to a note. This command has one optional argument: a query that will be used to resolve the note by ID, path, or alias. If not given, the selected text will be used as the query.'
+  })
 -- nnoremap <leader>op :ObsidianTemplate<CR>
-vim.keymap.set('n', '<leader>op', ':ObsidianTemplate<CR>', { noremap = false })
+vim.keymap.set('n', '<leader>op', ':ObsidianTemplate<CR>',
+  { noremap = false, desc = 'insert a template from the templates folder' })
 -- nnoremap <leader>op :ObsidianTemplate<CR>
 vim.keymap.set('n', '<leader>oh', ':ObsidianTOC<CR>',
   { noremap = false, desc = 'load the table of contents of the current note into a picker list' })
