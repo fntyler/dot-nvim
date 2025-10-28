@@ -85,7 +85,11 @@ require("obsidian").setup({
     subdir = "templates",
     date_format = "%Y-%m-%d",
     time_format = "%H:%M",
-    substitutions = {},
+    substitutions = {
+      yesterday = function()
+        return os.date("%Y-%m-%d", os.time() - 86400)
+      end
+    },
   },
 
   -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
