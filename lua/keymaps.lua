@@ -52,8 +52,15 @@ vim.keymap.set('n', '<F2>', 'q:?^!<cr>', { noremap = true })
 -- remove trailing white space
 vim.keymap.set('n', '<leader>ws', [[:%s/\s\+$//e<cr>]], { noremap = true })
 
--- nvim-lspconfig keymaps
-vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
+-- lsp global defaults (redundant)
 vim.keymap.set('n', 'gra', vim.lsp.buf.code_action)
-vim.keymap.set('n', 'grr', vim.lsp.buf.references)
-vim.keymap.set('n', 'grd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gri', vim.lsp.buf.implementation,
+  { desc = 'lists all the implementations for the symbol under the cursor in the quickfix window' })
+vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { desc = 'renames all references to the symbol under the cursor' })
+vim.keymap.set('n', 'grr', vim.lsp.buf.references,
+  { desc = 'lists all the references to the symbol under the cursor in the quickfix window.' })
+vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition,
+  { desc = ' Jumps to the definition of the type of the symbol under the cursor' })
+vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol,
+  { desc = 'lists all the implementations for the symbol under the cursor in the quickfix window' })
+vim.keymap.set('n', 'grd', vim.lsp.buf.definition, { desc = 'jumps to the definition of the symbol under the cursor' })
