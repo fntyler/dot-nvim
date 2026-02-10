@@ -48,14 +48,17 @@ vim.opt_global.scrolloff = 8
 -- set updatetime=100
 vim.g.updatetime = 100
 
--- set wildmode=longest:full
-vim.g.wildmenu = 'longest:full'
+-- set wildmenu
+--vim.g.wildmenu = true
+vim.opt.wildmenu = true
 
 -- set wildoptions=fuzzy
-vim.g.wildoptions = 'fuzzy'
+vim.opt.wildoptions = 'fuzzy'
 
--- set wildmenu
-vim.g.wildmenu = true
+-- set wildmode=longest:full
+--vim.opt_global.wildmode = 'longest:full'
+--vim.opt.wildmode = 'longest:full,,full'
+vim.g.wildmode = 'longest:full,list,full'
 
 -- set colorcolumn=
 vim.wo.colorcolumn = ''

@@ -7,6 +7,9 @@ vim.lsp.enable('bashls')
 -- pyright
 vim.lsp.enable('pyright')
 
+-- gh-actions-language-server
+vim.lsp.enable('gh_actions_ls')
+
 -- lua_ls
 vim.lsp.enable('lua_ls')
 vim.api.nvim_create_autocmd('LspAttach', {
