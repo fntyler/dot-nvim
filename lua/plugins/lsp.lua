@@ -10,6 +10,11 @@ vim.lsp.enable('pyright')
 -- gh-actions-language-server
 vim.lsp.enable('gh_actions_ls')
 
+-- rust-analyzer
+vim.lsp.enable('rust_analyzer')
+
+-- require("lspconfig").elixirls.setup { cmd = { "~/dev/elixir-ls-0.26.4/scripts/language_server.sh" } }
+
 -- lua_ls
 vim.lsp.enable('lua_ls')
 vim.api.nvim_create_autocmd('LspAttach', {
