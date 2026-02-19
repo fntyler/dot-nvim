@@ -1,5 +1,8 @@
 -- netrw Explore
-vim.keymap.set('n', '<leader>ex', vim.cmd.Ex)
+-- vim.keymap.set('n', '<leader>ex', vim.cmd.Ex)
+
+-- oil file explorer
+vim.keymap.set('n', '<leader>ex', require("oil").open)
 
 -- exit terminal-mode
 -- https://neovim.io/doc/user/terminal.html#terminal-input
