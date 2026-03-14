@@ -27,8 +27,8 @@
 require("obsidian").setup({
   workspaces = {
     {
-      name = "work",
-      path = "~/dev/work",
+      name = "whitepages",
+      path = "~/dev/whitepages",
     },
   },
 
@@ -218,8 +218,6 @@ vim.keymap.set('n', '<leader>oh', ':ObsidianTOC<CR>',
 -- vnoremap <leader>ox :ObsidianTemplate<CR>
 vim.keymap.set('v', '<leader>ox', ':ObsidianExtractNote<CR>',
   { noremap = false, desc = 'to extract the visually selected text into a new note and link to it' })
--- nnoremap <leader>nn /#todo<CR>vel
-vim.keymap.set('n', '<leader>nn', '/#todo<CR>vel', { noremap = false })
 vim.keymap.set('n', '<leader>oT', ':ObsidianNewFromTemplate<CR>',
   { noremap = false, desc = 'to create a new note from a template in the templates folder: [TITLE]' })
 vim.keymap.set('n', '<leader>ou', ':ObsidianLinks<CR>',
