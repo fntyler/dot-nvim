@@ -191,34 +191,36 @@ require("obsidian").setup({
 -- keymaps
 -- nnoremap <leader>os :ObsidianQuickSwitch<CR>
 vim.keymap.set('n', '<leader>os', ':ObsidianQuickSwitch<cr>',
-  { noremap = false, desc = 'quickly switch to (or open) another note in vault' })
+  { noremap = false, desc = 'ObsidianQuickSwitch quickly switch to (or open) another note in vault' })
 -- nnoremap <leader>ot :ObsidianTags<CR>
 vim.keymap.set('n', '<leader>ot', ':ObsidianTags<CR>',
-  { noremap = false, desc = 'picker list of all occurrences of the given tags' })
+  { noremap = false, desc = 'ObsidianTags picker list of all occurrences of the given tags' })
 -- nnoremap <leader>od :ObsidianDailies<CR>
-vim.keymap.set('n', '<leader>od', ':ObsidianDailies<CR>', { noremap = false, desc = 'picker list of daily notes' })
+vim.keymap.set('n', '<leader>od', ':ObsidianDailies<CR>',
+  { noremap = false, desc = 'ObsidianDailies picker list of daily notes' })
 -- nnoremap <leader>oc :ObsidianToggleCheckbox<CR>
-vim.keymap.set('n', '<leader>oc', ':ObsidianToggleCheckbox<CR>', { noremap = false })
+vim.keymap.set('n', '<leader>oc', ':ObsidianToggleCheckbox<CR>',
+  { noremap = false, desc = 'ObsidianBacklinks picker list of references to the current buffer' })
 -- nnoremap <leader>ol :ObsidianBacklinks<CR>
 vim.keymap.set('n', '<leader>ol', ':ObsidianBacklinks<CR>',
-  { noremap = false, desc = 'picker list of references to the current buffer' })
+  { noremap = false, desc = 'ObsidianBacklinks picker list of references to the current buffer' })
 -- vnoremap <leader>ok :ObsidianLink<CR>
 vim.keymap.set('v', '<leader>ok', ':ObsidianLink<CR>',
   {
     noremap = false,
     desc =
-    'link an inline visual selection of text to a note. This command has one optional argument: a query that will be used to resolve the note by ID, path, or alias. If not given, the selected text will be used as the query.'
+    'ObsidianLink link an inline visual selection of text to a note. This command has one optional argument: a query that will be used to resolve the note by ID, path, or alias. If not given, the selected text will be used as the query.'
   })
 -- nnoremap <leader>op :ObsidianTemplate<CR>
 vim.keymap.set('n', '<leader>op', ':ObsidianTemplate<CR>',
-  { noremap = false, desc = 'insert a template from the templates folder' })
+  { noremap = false, desc = 'ObsidianTemplate insert a template from the templates folder' })
 -- nnoremap <leader>op :ObsidianTemplate<CR>
 vim.keymap.set('n', '<leader>oh', ':ObsidianTOC<CR>',
-  { noremap = false, desc = 'load the table of contents of the current note into a picker list' })
+  { noremap = false, desc = 'ObsidianTOC load the table of contents of the current note into a picker list' })
 -- vnoremap <leader>ox :ObsidianTemplate<CR>
 vim.keymap.set('v', '<leader>ox', ':ObsidianExtractNote<CR>',
-  { noremap = false, desc = 'to extract the visually selected text into a new note and link to it' })
+  { noremap = false, desc = 'ObsidianExtractNote to extract the visually selected text into a new note and link to it' })
 vim.keymap.set('n', '<leader>oT', ':ObsidianNewFromTemplate<CR>',
-  { noremap = false, desc = 'to create a new note from a template in the templates folder: [TITLE]' })
+  { noremap = false, desc = 'ObsidianNewFromTemplate to create a new note from a template in the templates folder: [TITLE]' })
 vim.keymap.set('n', '<leader>ou', ':ObsidianLinks<CR>',
-  { noremap = false, desc = 'to collect all links within the current buffer into a picker window' })
+  { noremap = false, desc = 'ObsidianLinks to collect all links within the current buffer into a picker window' })
