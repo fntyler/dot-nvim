@@ -53,10 +53,31 @@ require("obsidian").setup({
       end,
       opts = { noremap = false, expr = true, buffer = true },
     },
-    -- Toggle check-boxes.
+    -- Toggle check-boxes with labels
     ["<leader>ch"] = {
       action = function()
-        return require("obsidian").util.toggle_checkbox()
+        local line = vim.api.nvim_get_current_line()
+        local new_line
+
+        if line:match("%- %[ %] TODO") then
+          local dt = os.date("%Y%m%d-%H%M")
+          new_line = line:gsub("%- %[ %] TODO", "- [x] DONE " .. dt)
+        elseif line:match("%- %[x%] DONE") then
+          new_line = line:gsub("%- %[x%] DONE %d%d%d%d%d%d%d%d%-%d%d%d%d", "- [>] PROG")
+          if new_line == line then
+            new_line = line:gsub("%- %[x%] DONE", "- [>] PROG")
+          end
+        elseif line:match("%- %[>%] PROG") then
+          new_line = line:gsub("%- %[>%] PROG", "- [~] ABAN")
+        elseif line:match("%- %[~%] ABAN") then
+          new_line = line:gsub("%- %[~%] ABAN", "- [ ] TODO")
+        else
+          -- No checkbox found, insert one at the start of the line (preserving indent)
+          local indent, rest = line:match("^(%s*)(.*)")
+          new_line = indent .. "- [ ] TODO " .. rest
+        end
+
+        vim.api.nvim_set_current_line(new_line)
       end,
       opts = { buffer = true },
     }
