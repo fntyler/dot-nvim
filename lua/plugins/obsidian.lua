@@ -242,6 +242,10 @@ vim.keymap.set('n', '<leader>oh', ':ObsidianTOC<CR>',
 vim.keymap.set('v', '<leader>ox', ':ObsidianExtractNote<CR>',
   { noremap = false, desc = 'ObsidianExtractNote to extract the visually selected text into a new note and link to it' })
 vim.keymap.set('n', '<leader>oT', ':ObsidianNewFromTemplate<CR>',
-  { noremap = false, desc = 'ObsidianNewFromTemplate to create a new note from a template in the templates folder: [TITLE]' })
+  {
+    noremap = false,
+    desc =
+    'ObsidianNewFromTemplate to create a new note from a template in the templates folder: [TITLE]'
+  })
 vim.keymap.set('n', '<leader>ou', ':ObsidianLinks<CR>',
   { noremap = false, desc = 'ObsidianLinks to collect all links within the current buffer into a picker window' })
