@@ -68,3 +68,9 @@ vim.wo.colorcolumn = ''
 -- obsidian.nvim https://github.com/epwalsh/obsidian.nvim/issues/286
 -- set conceallevel=1
 vim.wo.conceallevel = 1
+
+-- autocmds
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "css", "scss", "yaml" },
+  callback = function() vim.opt_local.iskeyword:append("-") end,
+})
