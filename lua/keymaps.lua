@@ -67,3 +67,25 @@ vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition,
 vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol,
   { desc = 'lists all the implementations for the symbol under the cursor in the quickfix window' })
 vim.keymap.set('n', 'grd', vim.lsp.buf.definition, { desc = 'jumps to the definition of the symbol under the cursor' })
+
+-- gh-cli workflow runs for the workflow file in the current buffer
+local function gh_workflow_runs(opts)
+  opts = opts or {}
+  local path = vim.api.nvim_buf_get_name(0)
+  if not path:match("%.github/workflows/.+%.ya?ml$") then
+    vim.notify("Not a workflow file", vim.log.levels.WARN)
+    return
+  end
+  local file = vim.fn.fnamemodify(path, ":t")
+  if opts.web then
+    vim.fn.jobstart({ "gh", "workflow", "view", file, "--web" }, { detach = true })
+  else
+    vim.cmd("botright new")
+    vim.fn.termopen({ "gh", "run", "list", "--workflow=" .. file, "--limit=30" })
+  end
+end
+
+vim.keymap.set('n', '<leader>gw', function() gh_workflow_runs({ web = true }) end,
+  { desc = 'gh-cli: open current workflow in browser' })
+vim.keymap.set('n', '<leader>gW', function() gh_workflow_runs() end,
+  { desc = 'gh-cli: list runs for current workflow' })
