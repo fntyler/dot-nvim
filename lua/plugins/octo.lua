@@ -284,3 +284,6 @@ vim.cmd([[cnoreabbrev octo Octo]])
 
 -- pr
 vim.keymap.set('n', '<leader>gp', '<cmd>Octo pr list<cr>', { desc = 'octo list pr satisfying given filter' })
+-- actions
+-- warning: this takes too long to fetch
+--vim.keymap.set('n', '<leader>gr', '<cmd>Octo run list<cr>', { desc = 'octo list workflow runs' })
