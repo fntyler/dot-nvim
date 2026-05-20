@@ -122,4 +122,13 @@ return {
       require("plugins.oil")
     end,
   },
+
+  -- indentation guides
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  },
 }
