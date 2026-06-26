@@ -89,3 +89,20 @@ vim.keymap.set('n', '<leader>gw', function() gh_workflow_runs({ web = true }) en
   { desc = 'gh-cli: open current workflow in browser' })
 vim.keymap.set('n', '<leader>gW', function() gh_workflow_runs() end,
   { desc = 'gh-cli: list runs for current workflow' })
+
+-- (wip) custom keymap for yanking
+-- yank "<file> <n>: <line text>"
+vim.keymap.set('x', '<leader>ly', function()
+  local s = vim.fn.line('v')
+  local e = vim.fn.line('.')
+  if s > e then s, e = e, s end
+
+  local file = vim.fn.expand('%')
+  local out = {}
+  for i = s, e do
+    out[#out + 1] = file .. ':' .. i .. ': ' .. vim.fn.getline(i)
+  end
+
+  vim.fn.setreg('+', table.concat(out, '\n'))
+  vim.notify(('Copied %d line(s) to clipboard'):format(e - s + 1))
+end, { desc = 'Copy file:line: text to clipboard' })
