@@ -27,6 +27,10 @@
 require("obsidian").setup({
   workspaces = {
     {
+      name = "work",
+      path = "~/dev/work",
+    },
+    {
       name = "whitepages",
       path = "~/dev/whitepages",
     },
@@ -223,6 +227,9 @@ require("obsidian").setup({
 -- nnoremap <leader>os :ObsidianQuickSwitch<CR>
 vim.keymap.set('n', '<leader>os', ':Obsidian quick_switch<CR>',
   { noremap = false, desc = 'ObsidianQuickSwitch quickly switch to (or open) another note in vault' })
+-- switch between configured vault workspaces (picker when no name is given)
+vim.keymap.set('n', '<leader>ow', ':Obsidian workspace<CR>',
+  { noremap = false, desc = 'ObsidianWorkspace switch to another configured vault' })
 -- nnoremap <leader>ot :ObsidianTags<CR>
 vim.keymap.set('n', '<leader>ot', ':Obsidian tags<CR>',
   { noremap = false, desc = 'ObsidianTags picker list of all occurrences of the given tags' })
