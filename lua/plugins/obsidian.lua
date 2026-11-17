@@ -45,17 +45,26 @@ require("obsidian").setup({
     template = nil
   },
 
-  mappings = {
-    -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-    ["gf"] = {
-      action = function()
-        return require("obsidian").util.gf_passthrough()
-      end,
-      opts = { noremap = false, expr = true, buffer = true },
-    },
-    -- Toggle check-boxes with labels
-    ["<leader>ch"] = {
-      action = function()
+  -- Use `:Obsidian quick_switch` style commands (legacy `:ObsidianQuickSwitch` style is removed in 4.0).
+  legacy_commands = false,
+
+  -- The 'mappings' option was removed in the community fork; buffer-local
+  -- mappings are now set when entering a note.
+  -- See: https://obsidian-nvim.github.io/obsidian.nvim/Keymaps
+  callbacks = {
+    enter_note = function(_)
+      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault,
+      -- falling back to the builtin 'gf' when the cursor isn't on a link.
+      vim.keymap.set("n", "gf", function()
+        if require("obsidian.api").cursor_link() then
+          require("obsidian.actions").follow_link()
+        else
+          vim.cmd("normal! gf")
+        end
+      end, { buffer = true, desc = "Obsidian follow link (gf passthrough)" })
+
+      -- Toggle check-boxes with labels
+      vim.keymap.set("n", "<leader>ch", function()
         local line = vim.api.nvim_get_current_line()
         local new_line
 
@@ -78,9 +87,8 @@ require("obsidian").setup({
         end
 
         vim.api.nvim_set_current_line(new_line)
-      end,
-      opts = { buffer = true },
-    }
+      end, { buffer = true, desc = "Cycle TODO/DONE/PROG/ABAN checkbox" })
+    end,
   },
 
   -- Optional, customize how names/IDs for new notes are created.
@@ -103,7 +111,7 @@ require("obsidian").setup({
 
   templates = {
     -- templates directory
-    subdir = "templates",
+    folder = "templates",
     date_format = "%Y-%m-%d",
     time_format = "%H:%M",
     substitutions = {
@@ -113,30 +121,25 @@ require("obsidian").setup({
     },
   },
 
-  -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
-  -- URL it will be ignored but you can customize this behavior here.
-  ---@param url string
-  follow_url_func = function(url)
-    -- Open the URL in the default web browser.
-    vim.fn.jobstart({ "open", url }) -- Mac OS
-    -- vim.fn.jobstart({"xdg-open", url})  -- linux
-    -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
-    -- vim.ui.open(url) -- need Neovim 0.10.0+
-  end,
+  -- 'follow_url_func' was removed in the community fork; URLs are opened with
+  -- vim.ui.open by default (uses `open` on macOS). Override via `open.func` if needed.
 
   ui = {
     enable = true,         -- set to false to disable all additional syntax features
     update_debounce = 200, -- update delay after a text change (in milliseconds)
-    -- Define how various check-boxes are displayed
-    checkboxes = {
-      -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
-      [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-      ["x"] = { char = "", hl_group = "ObsidianDone" },
-      [">"] = { char = "", hl_group = "ObsidianRightArrow" },
-      ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+    -- 'ui.checkboxes' is left commented out: these glyphs/highlights are identical to the
+    -- community fork's defaults, and setting the key triggers a deprecation warning on startup.
+    -- -- Define how various check-boxes are displayed
+    -- checkboxes = {
+    --   -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
+    --   [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+    --   ["x"] = { char = "", hl_group = "ObsidianDone" },
+    --   [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+    --   ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
 
-      -- You can also add more custom ones...
-    },
+    --   -- You can also add more custom ones...
+    --   -- NOTE: cycle order for `:Obsidian toggle_checkbox` is set by `checkbox.order` below.
+    -- },
     -- Use bullet marks for non-checkbox lists.
     bullets = { char = "•", hl_group = "ObsidianBullet" },
     external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
@@ -180,8 +183,16 @@ require("obsidian").setup({
     },
   },
 
-  sort_by = "modified",
-  sort_reversed = true,
+  -- Cycle order for `:Obsidian toggle_checkbox`: " " -> x first, then the rest of
+  -- the fork defaults (default order is { " ", "~", "!", ">", "x" }).
+  checkbox = {
+    order = { " ", "x", "~", "!", ">" },
+  },
+
+  search = {
+    sort_by = "modified",
+    sort_reversed = true,
+  },
 
   -- Optional, determines how certain commands open notes. The valid options are:
   -- 1. "current" (the default) - to always open in the current window
@@ -191,19 +202,18 @@ require("obsidian").setup({
 
   -- Specify how to handle attachments.
   attachments = {
-    -- The default folder to place images in via `:ObsidianPasteImg`.
+    -- The default folder to place images in via `:Obsidian paste_img`.
     -- If this is a relative path it will be interpreted as relative to the vault root.
     -- You can always override this per image by passing a full path to the command instead of just a filename.
-    img_folder = "assets/imgs", -- This is the default
+    folder = "assets/imgs",
     -- A function that determines the text to insert in the note when pasting an image.
-    -- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
-    -- This is the default implementation.
-    ---@param client obsidian.Client
-    ---@param path obsidian.Path the absolute path to the image file
+    -- In the community fork it only receives the path (no `client` argument).
+    ---@param path obsidian.Path|string the absolute path to the image file
     ---@return string
-    img_text_func = function(client, path)
-      path = client:vault_relative_path(path) or path
-      return string.format("![%s](%s)", path.name, path)
+    img_text_func = function(path)
+      local p = require("obsidian.path").new(path)
+      local rel = p:vault_relative_path() or tostring(p)
+      return string.format("![%s](%s)", p.name, rel)
     end,
   },
 
@@ -211,41 +221,41 @@ require("obsidian").setup({
 
 -- keymaps
 -- nnoremap <leader>os :ObsidianQuickSwitch<CR>
-vim.keymap.set('n', '<leader>os', ':ObsidianQuickSwitch<cr>',
+vim.keymap.set('n', '<leader>os', ':Obsidian quick_switch<CR>',
   { noremap = false, desc = 'ObsidianQuickSwitch quickly switch to (or open) another note in vault' })
 -- nnoremap <leader>ot :ObsidianTags<CR>
-vim.keymap.set('n', '<leader>ot', ':ObsidianTags<CR>',
+vim.keymap.set('n', '<leader>ot', ':Obsidian tags<CR>',
   { noremap = false, desc = 'ObsidianTags picker list of all occurrences of the given tags' })
 -- nnoremap <leader>od :ObsidianDailies<CR>
-vim.keymap.set('n', '<leader>od', ':ObsidianDailies<CR>',
+vim.keymap.set('n', '<leader>od', ':Obsidian dailies<CR>',
   { noremap = false, desc = 'ObsidianDailies picker list of daily notes' })
 -- nnoremap <leader>oc :ObsidianToggleCheckbox<CR>
-vim.keymap.set('n', '<leader>oc', ':ObsidianToggleCheckbox<CR>',
+vim.keymap.set('n', '<leader>oc', ':Obsidian toggle_checkbox<CR>',
   { noremap = false, desc = 'ObsidianBacklinks picker list of references to the current buffer' })
 -- nnoremap <leader>ol :ObsidianBacklinks<CR>
-vim.keymap.set('n', '<leader>ol', ':ObsidianBacklinks<CR>',
+vim.keymap.set('n', '<leader>ol', ':Obsidian backlinks<CR>',
   { noremap = false, desc = 'ObsidianBacklinks picker list of references to the current buffer' })
 -- vnoremap <leader>ok :ObsidianLink<CR>
-vim.keymap.set('v', '<leader>ok', ':ObsidianLink<CR>',
+vim.keymap.set('v', '<leader>ok', '<cmd>Obsidian link<CR>',
   {
     noremap = false,
     desc =
     'ObsidianLink link an inline visual selection of text to a note. This command has one optional argument: a query that will be used to resolve the note by ID, path, or alias. If not given, the selected text will be used as the query.'
   })
 -- nnoremap <leader>op :ObsidianTemplate<CR>
-vim.keymap.set('n', '<leader>op', ':ObsidianTemplate<CR>',
+vim.keymap.set('n', '<leader>op', ':Obsidian template<CR>',
   { noremap = false, desc = 'ObsidianTemplate insert a template from the templates folder' })
 -- nnoremap <leader>op :ObsidianTemplate<CR>
-vim.keymap.set('n', '<leader>oh', ':ObsidianTOC<CR>',
+vim.keymap.set('n', '<leader>oh', ':Obsidian toc<CR>',
   { noremap = false, desc = 'ObsidianTOC load the table of contents of the current note into a picker list' })
 -- vnoremap <leader>ox :ObsidianTemplate<CR>
-vim.keymap.set('v', '<leader>ox', ':ObsidianExtractNote<CR>',
+vim.keymap.set('v', '<leader>ox', ':Obsidian extract_note<CR>',
   { noremap = false, desc = 'ObsidianExtractNote to extract the visually selected text into a new note and link to it' })
-vim.keymap.set('n', '<leader>oT', ':ObsidianNewFromTemplate<CR>',
+vim.keymap.set('n', '<leader>oT', ':Obsidian new_from_template<CR>',
   {
     noremap = false,
     desc =
     'ObsidianNewFromTemplate to create a new note from a template in the templates folder: [TITLE]'
   })
-vim.keymap.set('n', '<leader>ou', ':ObsidianLinks<CR>',
+vim.keymap.set('n', '<leader>ou', ':Obsidian links<CR>',
   { noremap = false, desc = 'ObsidianLinks to collect all links within the current buffer into a picker window' })

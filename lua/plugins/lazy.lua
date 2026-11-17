@@ -56,27 +56,11 @@ return {
     },
   },
 
-  -- obsidian community fork
-  --{
-  --  "obsidian-nvim/obsidian.nvim",
-  --  version = "*", -- use latest release, remove to use latest commit
-  --  ---@module 'obsidian'
-  --  ---@type obsidian.config
-  --  opts = {
-  --    legacy_commands = false, -- this will be removed in the next major release
-  --    workspaces = {
-  --      {
-  --        name = "work",
-  --        path = "~/dev/work",
-  --      },
-  --    },
-  --  },
-  --},
-
-  -- obsidian
+  -- obsidian (community fork of epwalsh/obsidian.nvim)
+  -- setup() is called from lua/plugins/obsidian.lua, so no `opts` here.
   {
-    "epwalsh/obsidian.nvim",
-    version = "v3.9.0", -- recommended, use latest release instead of latest commit
+    "obsidian-nvim/obsidian.nvim",
+    version = "*", -- use latest release instead of latest commit
     lazy = true,
     ft = "markdown",
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
